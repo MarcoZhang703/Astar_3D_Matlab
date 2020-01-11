@@ -12,4 +12,8 @@
 % figure(4)
 % imshow(MAP);
 
-imread('depthToBgra1.jpg');
+%imread('depthToBgra1.jpg');
+clc
+clear
+ptCloud = pcread('1.pcd');
+pcshow(ptCloud);
