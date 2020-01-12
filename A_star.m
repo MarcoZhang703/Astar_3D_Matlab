@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %LISTS USED FOR ALGORITHM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [WayPoints,OPEN_COUNT] = A_star(MAX_X,MAX_Y,MAX_Z,xval,yval,zval,xTarget,yTarget,zTarget,MAP,CLOSED,Display_Data,MIN_Final_Data)
+function [WayPoints,OPEN_COUNT] = A_star(MAX_X,MAX_Y,MAX_Z,xval,yval,zval,xTarget,yTarget,zTarget,MAP,CLOSED,Display_Data)
 %%%%%%%SET Optimal_path NODE%%%%%%%%%%
 WayPoints = [];
 %%%%%%%SET STARTING NODE%%%%%%%%%%
