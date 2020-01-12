@@ -27,7 +27,7 @@
 % grid on;
 % 
 % pcwrite(ptCloud, './damn/5.ply');
-pcread('1_process.ply');
+ptCloud = pcread('1_process.ply');
 
 figure(1);
 pcshow('1_process.ply');
