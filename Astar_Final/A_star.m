@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %LISTS USED FOR ALGORITHM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [WayPoints,OPEN_COUNT] = A_star(MAX_X,MAX_Y,MAX_Z,xval,yval,zval,xTarget,yTarget,zTarget,MAP,CLOSED,Display_Data,MIN_Final_Data)
+function [WayPoints,OPEN_COUNT] = A_star(MAX_X,MAX_Y,MAX_Z,xval,yval,zval,xTarget,yTarget,zTarget,CLOSED)
 %%%%%%%SET Optimal_path NODE%%%%%%%%%%
 WayPoints = [];
 %%%%%%%SET STARTING NODE%%%%%%%%%%
@@ -30,11 +30,16 @@ zNode=zval;
 xFNode = xval;
 yFNode = yval;
 zFNode = zval;
+
 OPEN_COUNT=1;
-path_cost=0;
-goal_distance=distanced(xNode,yNode,zNode,xTarget,yTarget,zTarget);
+
+path_cost=0; % 这个就是公式F = G + H中的 G
+goal_distance=distanced(xNode,yNode,zNode,xTarget,yTarget,zTarget); % 这个就是公式F = G + H中的 H
+F_value = goal_distance + path_cost;
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%insert_open(当前x,当前y,父节点x,父节点y,路径h(n),启发g(n),f(n))%%%%%%%%%%%%%%%%%%%%%
-OPEN(OPEN_COUNT,:)=insert_open(xNode,yNode,zNode,xNode,yNode,zNode,path_cost,goal_distance,goal_distance);
+OPEN(OPEN_COUNT,:)=insert_open(xNode,yNode,zNode,xFNode,yFNode,zFNode,path_cost,goal_distance,F_value);
 OPEN(OPEN_COUNT,1)=0;
 CLOSED_COUNT=CLOSED_COUNT+1;
 CLOSED(CLOSED_COUNT,1)=xNode;
@@ -42,13 +47,14 @@ CLOSED(CLOSED_COUNT,2)=yNode;
 CLOSED(CLOSED_COUNT,3)=zNode;
 NoPath=1;           %%%%%是否有路径判断符1有，0无
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % START ALGORITHM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 while((xNode ~= xTarget || yNode ~= yTarget || zNode ~= zTarget) && NoPath == 1)
 %%%%%%%%%%%expand_array(父节点x,父节点y,当前节点x,当前节点y,h(n),目标x,目标y,CLOSED,表X,表y,地形上界y)%%%%%%%%%
 %%%%%%%%%%%返回值exp_array：扩展x,扩展y,扩展z,h(n),g(n),f(n)
- exp_array=expand_array(xFNode,yFNode,zFNode,xNode,yNode,zNode,path_cost,xTarget,yTarget,zTarget,CLOSED,MAX_X,MAX_Y,MAX_Z,Display_Data);
+ exp_array=expand_array(xFNode,yFNode,zFNode,xNode,yNode,zNode,path_cost,xTarget,yTarget,zTarget,CLOSED,MAX_X,MAX_Y,MAX_Z);
  exp_count=size(exp_array,1);
  %UPDATE LIST OPEN WITH THE SUCCESSOR NODES
  %OPEN LIST FORMAT
@@ -83,6 +89,7 @@ while((xNode ~= xTarget || yNode ~= yTarget || zNode ~= zTarget) && NoPath == 1)
      end;%End of insert new element into the OPEN list
  end;%End of i for
  
+ 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  %END OF WHILE LOOP
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,7 +103,7 @@ while((xNode ~= xTarget || yNode ~= yTarget || zNode ~= zTarget) && NoPath == 1)
    xFNode=OPEN(index_min_node,5);
    yFNode=OPEN(index_min_node,6);
    zFNode=OPEN(index_min_node,7);
-   path_cost=OPEN(index_min_node,8);%Update the cost of reaching the parent node
+   path_cost=OPEN(index_min_node,8); % Update the cost of reaching the parent node
   %Move the Node to list CLOSED
   CLOSED_COUNT=CLOSED_COUNT+1;
   CLOSED(CLOSED_COUNT,1)=xNode;
@@ -146,6 +153,6 @@ plot3(Optimal_path(:,1)+.5,Optimal_path(:,2)+.5,Optimal_path(:,3)+.5,'b','linewi
 WayPoints = Optimal_path;
 else
  pause(1);
- h=msgbox('Sorry, No path exists to the Target!','warn');
+ h=msgbox('Sorry, No path exists to the Target!','Warn');
  uiwait(h,5);
 end

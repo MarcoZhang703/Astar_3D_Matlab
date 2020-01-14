@@ -14,23 +14,23 @@ OPEN_COUNT = 0;
 OPEN_COUNT_ALL = 0;
 
 % Set Starting Point&Targeting Point
-start_point = [-2,-0.5,4.5]
-target_point = [0.5,0,1]
+% start_point = [-2,-0.5,4];
+% target_point = [-2.5,-0.5,4.15];
 
-% start_point = [0,0,0]
-% target_point = [0.3,0.3,0.3]
+start_point = [0,0,0]
+target_point = [0.3,0.3,0.3]
 
 %%%%%%%ALGORITHM START%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%Compute time%%%%%%%%%%%
 tic
-timerVal = tic
+timerVal = tic;
 MapData=load('MapData.mat');
-Display_Data=MapData.Display_Data
-[MAX_X, MAX_Y, MAX_Z, MIN_X ,MIN_Y ,MIN_Z, MAP ,CLOSED]=MakeMAP()
-[WayPoints,OPEN_COUNT] = A_star(MAX_X,MAX_Y,MAX_Z,start_point(1),start_point(2),start_point(3),target_point(1),target_point(2),target_point(3),MAP,CLOSED,Display_Data);
+Display_Data=MapData.Display_Data;
+[MAX_X, MAX_Y, MAX_Z, MIN_X ,MIN_Y ,MIN_Z, MAP ,CLOSED]=MakeMAP();
+[WayPoints,OPEN_COUNT] = A_star(MAX_X,MAX_Y,MAX_Z,start_point(1),start_point(2),start_point(3),target_point(1),target_point(2),target_point(3),CLOSED);
 
 toc(timerVal)
-elapsedTime = toc(timerVal)
+elapsedTime = toc(timerVal);
 
 % Display Point Cloud
 figure(1)

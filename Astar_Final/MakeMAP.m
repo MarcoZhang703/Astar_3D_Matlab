@@ -28,7 +28,7 @@ MAP=2*(ones(in_X,in_Y,in_Z));%初始化地图，所有点是可行的
 % Initialize the MAP with input values
 % Obstacle=-1,Target = 0,Robot=1,Space=2，-1代表障碍物，2代表可行点
 %%%%%%%Make Random Terrain Data%%%%%%%
-for i=2:2%自定义障碍物点，使之为-1
+for i=2:2 % 自定义障碍物点，使之为-1
     for j=1:2
 %         Z_UpData = New_Data(i,j);
 %         for z = 1:Z_UpData
@@ -38,7 +38,7 @@ end
 %end
 CLOSED=[];
 % %Put all obstacles on the Closed list
-k=1;%Dummy counter
+k=1;% Dummy counter
 for i=2:2%把所有的障碍物点放到closed列表里
     for j=1:2
 %         Z_UpData = New_Data(i,j);
