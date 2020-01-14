@@ -29,13 +29,11 @@ Display_Data=MapData.Display_Data
 toc(timerVal)
 elapsedTime = toc(timerVal)
 
-% Display Point Cloud
+
 figure(1)
-pc = pcread('2.ply');
+pc = pcread('2.ply'); %读入点云文件
 pcshow(pc)
 hold on
-
-
 axis([MIN_X MAX_X MIN_Y MAX_Y 0 MAX_Z]);%绘制坐标值
 plot3(WayPoints(:,1),WayPoints(:,2),WayPoints(:,3),'r','linewidth',2);
 hold on % 保留当前坐标区中的绘图，从而使新添加到坐标区中的绘图不会删除现有绘图。新绘图基于坐标区的 ColorOrder 和 LineStyleOrder 属性使用后续的颜色和线型。
@@ -45,8 +43,9 @@ hold on % 保留当前坐标区中的绘图，从而使新添加到坐标区中的绘图不会删除现有绘图。
 plot3(start_point(1),start_point(2),start_point(3),'*');
 plot3(target_point(1),target_point(2),target_point(3),'^');
 
-
-% Draw Axis Details
+set(gca,'xticklabel','');
+set(gca,'yticklabel','');
+set(gca,'zticklabel','');
 xlabel('纬度');
 ylabel('经度');
 zlabel('高度（m）');
