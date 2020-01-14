@@ -17,12 +17,11 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
             for j= 0.15:-0.15:-0.15
                 for z=0.15:-0.15:-0.15
                     if (k~=j || k~=0)  %The node itself is not its successor
-                        disp('===============z1_1============');
+                        disp('===============z1==
                         s_x = node_x+k;
                         s_y = node_y+j;
                         s_z = node_z+z;
                         if( (s_x >-4 && s_x <=MAX_X) && (s_y >-5 && s_y <=MAX_Y) && (s_z >0 && s_z <=MAX_Z)) % node within array bound
-                            disp('===============z1_2============');
                             flag=1;                     %是否在CLOSED列表标识为                    
                             for c1=1:c2
                                 if(s_x == CLOSED(c1,1) && s_y == CLOSED(c1,2) && s_z == CLOSED(c1,3))
@@ -38,7 +37,6 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         %                         flag = 0;
         %                     end
                             if (flag == 1)
-                                disp('===============z1_3============');
                                 exp_array(exp_count,1) = s_x;
                                 exp_array(exp_count,2) = s_y;
                                 exp_array(exp_count,3) = s_z;
@@ -61,12 +59,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
             for j= 0:-0.15:-0.15
                 for z=0.15:-0.15:-0.15
                     if (k~=j || k~=0)  %The node itself is not its successor
-                        disp('===============z2_1============');
                         s_x = node_x+k;
                         s_y = node_y+j;
                         s_z = node_z+z;
                         if( (s_x >-5 && s_x <=MAX_X) && (s_y >-4 && s_y <=MAX_Y) && (s_z >0 && s_z <=MAX_Z))%node within array bound
-                            disp('===============z2_2============');
                             flag=1;                     %是否在CLOSED列表标识为                    
                             for c1=1:c2
                                 if(s_x == CLOSED(c1,1) && s_y == CLOSED(c1,2) && s_z == CLOSED(c1,3))
@@ -78,7 +74,6 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         %                         flag = 0;
         %                     end
                             if (flag == 1)
-                                disp('===============z2_3============');
                                 exp_array(exp_count,1) = s_x;
                                 exp_array(exp_count,2) = s_y;
                                 exp_array(exp_count,3) = s_z;                        
@@ -113,12 +108,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
             for j= 0.15:-0.15:0
                 for z=0.15:-0.15:-0.15
                     if (k~=j || k~=0)  %The node itself is not its successor
-                        disp('===============z3_1============');
                         s_x = node_x+k;
                         s_y = node_y+j;
                         s_z = node_z+z;
                         if( (s_x >-5 && s_x <=MAX_X) && (s_y >-4 && s_y <=MAX_Y) && (s_z >0 && s_z <=MAX_Z))%node within array bound
-                            disp('===============z3_2============');
                             flag=1;                     %是否在CLOSED列表标识为                    
                             for c1=1:c2
                                 if(s_x == CLOSED(c1,1) && s_y == CLOSED(c1,2) && s_z == CLOSED(c1,3))
@@ -130,7 +123,6 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
             %                         flag = 0;
             %                     end
                             if (flag == 1)
-                                disp('===============z3_3============');
                                 exp_array(exp_count,1) = s_x;
                                 exp_array(exp_count,2) = s_y;
                                 exp_array(exp_count,3) = s_z;                        

@@ -17,6 +17,9 @@ OPEN_COUNT_ALL = 0;
 start_point = [-2,-0.5,4.5]
 target_point = [0.5,0,1]
 
+% start_point = [0,0,0]
+% target_point = [0.3,0.3,0.3]
+
 %%%%%%%ALGORITHM START%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%Compute time%%%%%%%%%%%
 tic
