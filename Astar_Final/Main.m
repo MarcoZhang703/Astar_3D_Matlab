@@ -14,11 +14,11 @@ OPEN_COUNT = 0;
 OPEN_COUNT_ALL = 0;
 
 % Set Starting Point&Targeting Point
-% start_point = [-2,-0.5,4];
-% target_point = [-2.5,-0.5,4.15];
+start_point = [-2,-0.5,4];
+target_point = [-2.5,-0.5,4.5];
 
-start_point = [0,0,0]
-target_point = [0.3,0.3,0.3]
+% start_point = [0,0,0]
+% target_point = [0.3,0.3,0.3]
 
 %%%%%%%ALGORITHM START%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%Compute time%%%%%%%%%%%

@@ -12,10 +12,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
     disp(k_x);
     disp(k_y);
 %%%%%%%%状况1
-    if (k_x == 0.15&&k_y == 0)||(k_x == 0&&k_y == 0)
-        for k= 0.15
-            for j= 0.15:-0.15:-0.15
-                for z=0.15:-0.15:-0.15
+    if (k_x == 0.5&&k_y == 0)||(k_x == 0&&k_y == 0)
+        for k= 0.5
+            for j= 0.5:-0.5:-0.5
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z1_1============');
                         s_x = node_x+k;
@@ -56,10 +56,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         end % End of k for loop
     end
 %%%%%%%%%%%%状况2    
-    if (k_x == 0.15&&k_y == -0.15)
-        for k= 0.15:-0.15:0
-            for j= 0:-0.15:-0.15
-                for z=0.15:-0.15:-0.15
+    if (k_x == 0.5&&k_y == -0.5)
+        for k= 0.5:-0.5:0
+            for j= 0:-0.5:-0.5
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z2_1============');
                         s_x = node_x+k;
@@ -108,10 +108,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         end%End of k for loop
     end
 %%%%%%%%状况3    
-    if (k_x == 0.15&&k_y == 0.15)
-        for k= 0.15:-0.15:0
-            for j= 0.15:-0.15:0
-                for z=0.15:-0.15:-0.15
+    if (k_x == 0.5&&k_y == 0.5)
+        for k= 0.5:-0.5:0
+            for j= 0.5:-0.5:0
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z3_1============');
                         s_x = node_x+k;
@@ -160,10 +160,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         end%End of k for loop
     end
 %%%%%%%%状况4    
-    if (k_x == 0&&k_y == 0.15)
-        for k= 0.15:-0.15:-0.15
-            for j= 0.15
-                for z=0.15:-0.15:-0.15
+    if (k_x == 0&&k_y == 0.5)
+        for k= 0.5:-0.5:-0.5
+            for j= 0.5
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z4_1============');
                         s_x = node_x+k;
@@ -212,10 +212,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         end%End of k for loop
     end
 %%%%%%%%状况5    
-    if (k_x == 0&&k_y == -0.15)
-        for k= 0.15:-0.15:-0.15
-            for j= -0.15
-                for z=0.15:-0.15:-0.15
+    if (k_x == 0&&k_y == -0.5)
+        for k= 0.5:-0.5:-0.5
+            for j= -0.5
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z5_1============');
                         s_x = node_x+k;
@@ -264,10 +264,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         end%End of k for loop
     end
 %%%%%%%%状况6    
-    if (k_x == -0.15&&k_y == 0.15)
-        for k= 0:-0.15:-0.15
-            for j= 0.15:-0.15:0
-                for z=0.15:-0.15:-0.15
+    if (k_x == -0.5&&k_y == 0.5)
+        for k= 0:-0.5:-0.5
+            for j= 0.5:-0.5:0
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z6_1============');
                         s_x = node_x+k;
@@ -316,10 +316,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
         end%End of k for loop
     end
 %%%%%%%%状况7    
-    if (k_x == -0.15&&k_y == 0)
-        for k= -0.15
-            for j= 0.15:-0.15:-0.15
-                for z=0.15:-0.15:-0.15
+    if (k_x == -0.5&&k_y == 0)
+        for k= -0.5
+            for j= 0.5:-0.5:-0.5
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z7_1============');
                         s_x = node_x+k;
@@ -369,10 +369,10 @@ function exp_array=expand_array(nodef_x,nodef_y,nodef_z,node_x,node_y,node_z,pat
     end
 
 %%%%%%%%状况8    
-    if (k_x == -0.15&&k_y == -0.15)
-        for k= 0:-0.15:-0.15
-            for j= 0:-0.15:-0.15
-                for z=0.15:-0.15:-0.15
+    if (k_x == -0.5&&k_y == -0.5)
+        for k= 0:-0.5:-0.5
+            for j= 0:-0.5:-0.5
+                for z=0.5:-0.5:-0.5
                     if (k~=j || k~=0)  %The node itself is not its successor
                         disp('===============z8_1============');
                         s_x = node_x+k;
